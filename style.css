@@ -1,116 +1,24 @@
+/* ===========================
+   TEAM 420 Professional Style
+=========================== */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-html,body{
-    width:100%;
-    height:100%;
+body{
+    font-family:Arial, Helvetica, sans-serif;
     overflow:hidden;
     background:#000;
-    font-family:Arial,Helvetica,sans-serif;
+    color:#fff;
 }
 
-#space{
-    position:fixed;
-    inset:0;
-    width:100%;
-    height:100%;
-    background:
-    radial-gradient(circle at center,#06162f 0%,#01040c 50%,#000 100%);
-    z-index:1;
-}
+/* ===========================
+   Background Video
+=========================== */
 
-#intro{
-    position:absolute;
-    inset:0;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    z-index:20;
-    animation:introFade 6s forwards;
-}
-
-#logo{
-    width:220px;
-    animation:
-    logoZoom 5s ease,
-    glow 2s infinite alternate;
-}
-
-#title{
-    margin-top:20px;
-    font-size:60px;
-    color:#39ff14;
-    letter-spacing:5px;
-    text-shadow:
-    0 0 10px #39ff14,
-    0 0 30px #39ff14,
-    0 0 70px #39ff14;
-}
-
-#story{
-    margin-top:15px;
-    font-size:22px;
-    color:white;
-    letter-spacing:2px;
-}
-
-#battle{
-    position:absolute;
-    inset:0;
-    z-index:10;
-    opacity:0;
-}
-
-.ufo{
-    position:absolute;
-    width:90px;
-    height:35px;
-    border-radius:50%;
-    background:#50ff7a;
-    box-shadow:0 0 30px #50ff7a;
-}
-
-.ufo::before{
-    content:"";
-    position:absolute;
-    width:35px;
-    height:18px;
-    left:27px;
-    top:-10px;
-    border-radius:50%;
-    background:#7df9ff;
-}
-
-.ufo1{
-    top:12%;
-    left:110%;
-}
-
-.ufo2{
-    top:30%;
-    left:120%;
-}
-
-.ufo3{
-    top:55%;
-    left:115%;
-}
-
-.ufo4{
-    top:75%;
-    left:130%;
-}
-
-.laser{
-    position:absolute;
-    width:220px;
-    height:4px;
-    background:red;
-    box-shadow:0 0 20px red;
 #bgVideo{
     position:fixed;
     top:0;
@@ -121,58 +29,50 @@ html,body{
     z-index:-2;
 }
 
-.logo{
-    width:220px;
-    display:block;
-    margin:30px auto;
-    filter:drop-shadow(0 0 20px #39ff14);
-    animation:float 3s ease-in-out infinite;
-}
+/* Dark Overlay */
 
-@keyframes float{
-    0%{transform:translateY(0);}
-    50%{transform:translateY(-15px);}
-    100%{transform:translateY(0);}
-}
-/* ===== UFO Animation ===== */
-
-.ufo{
+body::before{
+    content:"";
     position:fixed;
-    top:80px;
-    left:-150px;
-    font-size:70px;
-    z-index:99;
-    animation:ufoFly 12s linear infinite;
-    filter:drop-shadow(0 0 20px #39ff14);
+    inset:0;
+    background:rgba(0,0,0,.45);
+    z-index:-1;
 }
 
-@keyframes ufoFly{
+/* ===========================
+   Navigation Menu
+=========================== */
 
-0%{
-left:-150px;
-top:120px;
-transform:rotate(0deg);
+.menu{
+    position:fixed;
+    top:20px;
+    left:0;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    gap:35px;
+    z-index:100;
 }
 
-25%{
-left:25%;
-top:80px;
-}
+.menu a{
 
-50%{
-left:50%;
-top:180px;
-}
+    color:#39ff14;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:bold;
 
-75%{
-left:75%;
-top:100px;
-}
+    text-shadow:
+    0 0 8px #39ff14,
+    0 0 15px #39ff14;
 
-100%{
-left:110%;
-top:140px;
-transform:rotate(360deg);
-}
+    transition:.3s;
 
 }
+
+.menu a:hover{
+
+    color:#fff;
+
+    text-shadow:
+    0 0 10px #fff,
+    0
