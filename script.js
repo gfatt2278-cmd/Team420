@@ -1,174 +1,66 @@
-const intro = document.getElementById("intro");
-const battle = document.getElementById("battle");
-const finalScreen = document.getElementById("final");
-const flash = document.getElementById("flash");
-const start = document.getElementById("start");
+// ==============================
+// TEAM 420 Professional Script
+// ==============================
 
-const canvas = document.getElementById("space");
-const ctx = canvas.getContext("2d");
+// Page Load Animation
+window.addEventListener("load", () => {
+    document.body.style.opacity = "0";
 
-canvas.width = innerWidth;
-canvas.height = innerHeight;
+    setTimeout(() => {
+        document.body.style.transition = "opacity 1.5s";
+        document.body.style.opacity = "1";
+    }, 200);
+});
 
-window.onresize = () => {
-    canvas.width = innerWidth;
-    canvas.height = innerHeight;
-};
+// ENTER Button
+const enterBtn = document.getElementById("enterBtn");
 
-// ===== STAR FIELD =====
-const stars = [];
+if (enterBtn) {
+    enterBtn.addEventListener("click", () => {
 
-for (let i = 0; i < 300; i++) {
-    stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        s: Math.random() * 2 + 1,
-        v: Math.random() * 5 + 1
+        enterBtn.innerHTML = "WELCOME 👽";
+
+        enterBtn.style.background = "#00ff66";
+
+        setTimeout(() => {
+            alert("👽 Welcome To TEAM 420 👽");
+        }, 300);
+
     });
 }
 
-function drawStars() {
+// ==============================
+// Random Stars
+// ==============================
 
-    ctx.clearRect(0,0,canvas.width,canvas.height);
+for (let i = 0; i < 80; i++) {
 
-    ctx.fillStyle="white";
+    const star = document.createElement("div");
 
-    stars.forEach(st=>{
+    star.className = "star";
 
-        ctx.beginPath();
+    star.style.left = Math.random() * window.innerWidth + "px";
 
-        ctx.arc(st.x,st.y,st.s,0,Math.PI*2);
+    star.style.top = Math.random() * window.innerHeight + "px";
 
-        ctx.fill();
+    star.style.animationDuration = (2 + Math.random() * 4) + "s";
 
-        st.x-=st.v;
-
-        if(st.x<0){
-
-            st.x=canvas.width;
-
-            st.y=Math.random()*canvas.height;
-
-        }
-
-    });
-
-    requestAnimationFrame(drawStars);
+    document.body.appendChild(star);
 
 }
 
-drawStars();
+// ==============================
+// UFO Laser
+// ==============================
 
-// ===== UFO =====
+const ufo = document.querySelector(".ufo");
 
-const ufos=document.querySelectorAll(".ufo");
+if (ufo) {
 
-setTimeout(()=>{
+    setInterval(() => {
 
-    battle.style.opacity=1;
+        const laser = document.createElement("div");
 
-    ufos.forEach((u,index)=>{
+        laser.className = "laser";
 
-        u.animate([
-
-            {
-                transform:"translateX(0)"
-            },
-
-            {
-                transform:"translateX(-180vw)"
-            }
-
-        ],{
-
-            duration:5000+(index*700),
-
-            iterations:1,
-
-            fill:"forwards"
-
-        });
-
-    });
-
-},5000);
-
-// ===== LASER =====
-
-function laser(){
-
-    document.querySelectorAll(".laser").forEach((l,index)=>{
-
-        l.style.opacity=1;
-
-        l.style.top=(25+index*20)+"%";
-
-        l.style.left="100%";
-
-        l.animate([
-
-            {
-                transform:"translateX(0)"
-            },
-
-            {
-                transform:"translateX(-220vw)"
-            }
-
-        ],{
-
-            duration:900,
-
-            iterations:1
-
-        });
-
-    });
-
-}
-
-setInterval(laser,700);
-
-// ===== FLASH =====
-
-function boom(){
-
-    flash.animate([
-
-        {opacity:0},
-
-        {opacity:.9},
-
-        {opacity:0}
-
-    ],{
-
-        duration:500
-
-    });
-
-}
-
-setInterval(boom,1600);
-
-// ===== SHOW FINAL =====
-
-setTimeout(()=>{
-
-    battle.style.opacity=0;
-
-    finalScreen.style.opacity=1;
-
-},12000);
-
-// ===== START BUTTON =====
-
-start.onclick=function(){
-
-    window.location.href="home.html";
-
-};
-setTimeout(() => {
-  document.getElementById("loading").style.display = "none";
-  document.getElementById("home").style.display = "block";
-}, 4000);
+        laser.style.left = (
