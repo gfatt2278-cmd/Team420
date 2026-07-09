@@ -199,3 +199,15 @@ if (logo) {
         );
     }, 2000);
 }
+setInterval(()=>{
+    document.querySelectorAll(".ufo").forEach(u=>{
+        u.animate([
+            {transform:"translateY(0px)"},
+            {transform:"translateY(-12px)"},
+            {transform:"translateY(0px)"}
+        ],{
+            duration:1800,
+            iterations:1
+        });
+    });
+},1800);
