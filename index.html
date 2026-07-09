@@ -3,41 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TEAM 420</title>
+<title>TEAM420 | Beyond Limits</title>
 
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- Background Video -->
+<!-- Space Background -->
 <video id="bgVideo" autoplay muted loop playsinline>
     <source src="video.mp4" type="video/mp4">
 </video>
 
-<!-- Main Screen -->
-<div class="overlay">
+<div id="overlay"></div>
 
-    <h1 class="title">TEAM 420</h1>
+<!-- Hero -->
+<section class="hero">
 
-    <img src="my-team.jpg" id="logo" alt="420 Logo">
+    <img src="my-team.jpg" class="logo" alt="TEAM420 Logo">
 
-    <h2>420</h2>
+    <h1>TEAM 420</h1>
 
-    <p>CLICK THE LOGO</p>
+    <p class="motto">
+        Think Different.<br>
+        Stay Creative.<br>
+        Beyond Limits.
+    </p>
 
-</div>
+    <button id="startBtn">
+        START MISSION
+    </button>
 
-<!-- Intro Video -->
-<div id="introScreen">
+</section>
 
-    <video id="introVideo" playsinline>
+<!-- Story -->
+<section id="story">
 
-        <source src="video.mp4" type="video/mp4">
+<h2>420 – Explore the Unknown</h2>
 
-    </video>
+<p id="typing"></p>
 
-</div>
+</section>
 
 <script src="script.js"></script>
 
