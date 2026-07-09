@@ -215,10 +215,19 @@ body{
 }
 
 .logo{
-    width:320px;
-    max-width:85%;
+    width:340px;
+    max-width:90%;
+    display:block;
+    margin:20px auto;
     animation:float 3s ease-in-out infinite;
-    filter:drop-shadow(0 0 25px #00ff66);
+    filter:drop-shadow(0 0 15px #00ff66)
+           drop-shadow(0 0 35px #39ff14)
+           drop-shadow(0 0 60px #00ff66);
+    transition:.4s;
+}
+
+.logo:hover{
+    transform:scale(1.08) rotate(-2deg);
 }
 
 h1{
