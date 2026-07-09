@@ -172,3 +172,30 @@ setTimeout(() => {
   document.getElementById("loading").style.display = "none";
   document.getElementById("home").style.display = "block";
 }, 4000);
+// ===== Logo Glow Pulse =====
+const logo = document.getElementById("logo");
+
+if (logo) {
+    setInterval(() => {
+        logo.animate(
+            [
+                {
+                    transform: "scale(1)",
+                    filter: "drop-shadow(0 0 20px #39ff14)"
+                },
+                {
+                    transform: "scale(1.08)",
+                    filter: "drop-shadow(0 0 50px #39ff14)"
+                },
+                {
+                    transform: "scale(1)",
+                    filter: "drop-shadow(0 0 20px #39ff14)"
+                }
+            ],
+            {
+                duration: 2000,
+                iterations: 1
+            }
+        );
+    }, 2000);
+}
