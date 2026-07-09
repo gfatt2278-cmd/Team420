@@ -34,7 +34,13 @@ cursor:pointer;
 </style>
 </head>
 <body>
-
+<nav class="menu">
+    <a href="#">HOME</a>
+    <a href="#">TEAM</a>
+    <a href="#">GALLERY</a>
+    <a href="#">VIDEO</a>
+    <a href="#">CONTACT</a>
+</nav>
 <div class="container">
 <h1>TEAM 420</h1>
 <p>👽 Welcome To TEAM 420 👽</p>
@@ -45,3 +51,25 @@ cursor:pointer;
 
 </body>
 </html>
+.menu{
+    position:fixed;
+    top:20px;
+    width:100%;
+    text-align:center;
+    z-index:100;
+}
+
+.menu a{
+    color:#39ff14;
+    text-decoration:none;
+    margin:0 18px;
+    font-size:20px;
+    font-weight:bold;
+    text-shadow:0 0 10px #39ff14;
+    transition:.3s;
+}
+
+.menu a:hover{
+    color:#ffffff;
+    text-shadow:0 0 20px #39ff14;
+}
