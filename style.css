@@ -1,22 +1,17 @@
-/* ===========================
-   TEAM 420 STYLE
-=========================== */
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
+    font-family:Segoe UI,Arial,sans-serif;
     background:#000;
-    overflow:hidden;
     color:#fff;
+    overflow-x:hidden;
 }
 
 /* Background Video */
-
 #bgVideo{
     position:fixed;
     top:0;
@@ -28,133 +23,120 @@ body{
 }
 
 /* Dark Overlay */
-
-.overlay{
-    position:absolute;
+#overlay{
+    position:fixed;
     inset:0;
-    background:rgba(0,0,0,.45);
+    background:rgba(0,0,0,.55);
+    z-index:-1;
+}
 
+/* Hero */
+.hero{
+    min-height:100vh;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
     text-align:center;
-}
-
-/* TEAM Title */
-
-.title{
-    font-size:55px;
-    color:#39ff14;
-    text-shadow:
-    0 0 10px #39ff14,
-    0 0 20px #39ff14,
-    0 0 40px #39ff14;
-
-    margin-bottom:25px;
+    padding:20px;
 }
 
 /* Logo */
-
-#logo{
-    width:240px;
-    height:240px;
-
-    border-radius:50%;
-    object-fit:cover;
-
-    cursor:pointer;
-
-    border:5px solid #39ff14;
-
-    box-shadow:
-    0 0 20px #39ff14,
-    0 0 50px #39ff14;
-
-    transition:.4s;
+.logo{
+    width:220px;
+    border-radius:20px;
+    filter:drop-shadow(0 0 25px #00ff66);
+    animation:pulse 2s infinite;
 }
 
-#logo:hover{
-
-    transform:scale(1.08) rotate(5deg);
-
-    box-shadow:
-    0 0 30px #39ff14,
-    0 0 80px #39ff14,
-    0 0 120px #39ff14;
-
-}
-
-/* 420 */
-
-h2{
-
-    margin-top:20px;
-
-    font-size:65px;
-
-    color:#00ff99;
-
-    text-shadow:
-    0 0 15px #00ff99,
-    0 0 35px #00ff99;
-
-}
-
-/* Text */
-
-p{
-
-    margin-top:20px;
-
-    font-size:22px;
-
-    letter-spacing:3px;
-
-    color:white;
-
-    animation:blink 1.2s infinite;
-
-}
-
-@keyframes blink{
-
-    50%{
-
-        opacity:.3;
-
+@keyframes pulse{
+    0%{
+        transform:scale(1);
+        filter:drop-shadow(0 0 15px #00ff66);
     }
+    50%{
+        transform:scale(1.08);
+        filter:drop-shadow(0 0 45px #00ff66);
+    }
+    100%{
+        transform:scale(1);
+        filter:drop-shadow(0 0 15px #00ff66);
+    }
+}
 
+h1{
+    margin-top:25px;
+    font-size:60px;
+    color:#39ff14;
+    text-shadow:0 0 20px #39ff14;
+}
+
+.motto{
+    margin-top:15px;
+    font-size:22px;
+    line-height:1.8;
+    color:#ffffff;
+}
+
+/* Button */
+#startBtn{
+    margin-top:35px;
+    padding:16px 45px;
+    border:none;
+    border-radius:40px;
+    background:#39ff14;
+    color:#000;
+    font-size:20px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 0 25px #39ff14;
+}
+
+#startBtn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 50px #39ff14;
+}
+
+/* Story */
+#story{
+    max-width:900px;
+    margin:80px auto;
+    padding:30px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+}
+
+#story h2{
+    text-align:center;
+    color:#39ff14;
+    margin-bottom:25px;
+}
+
+#typing{
+    white-space:pre-line;
+    font-size:20px;
+    line-height:1.9;
 }
 
 /* Mobile */
-
 @media(max-width:768px){
 
-.title{
-
-font-size:40px;
-
+.logo{
+    width:150px;
 }
 
-#logo{
-
-width:180px;
-
-height:180px;
-
+h1{
+    font-size:38px;
 }
 
-h2{
-
-font-size:48px;
-
+.motto{
+    font-size:18px;
 }
 
-p{
-
-font-size:18px;
-
+#typing{
+    font-size:17px;
 }
 
 }
