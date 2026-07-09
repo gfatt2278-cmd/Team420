@@ -247,3 +247,36 @@ button:hover{
 50%{transform:translateY(-15px);}
 100%{transform:translateY(0);}
 }
+/* Premium TEAM 420 Effects */
+
+.logo:hover{
+    transform:scale(1.08) rotate(3deg);
+    transition:.4s;
+    filter:drop-shadow(0 0 40px #39ff14);
+}
+
+button{
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 35px #39ff14;
+}
+
+.menu a{
+    transition:.3s;
+}
+
+.menu a:hover{
+    color:#ffffff;
+    text-shadow:0 0 25px #39ff14;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background:radial-gradient(circle,transparent 65%,rgba(0,255,100,.12));
+}
