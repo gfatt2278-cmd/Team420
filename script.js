@@ -1,297 +1,170 @@
+const intro = document.getElementById("intro");
+const battle = document.getElementById("battle");
+const finalScreen = document.getElementById("final");
+const flash = document.getElementById("flash");
+const start = document.getElementById("start");
+
 const canvas = document.getElementById("space");
 const ctx = canvas.getContext("2d");
 
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 
-window.addEventListener("resize", () => {
+window.onresize = () => {
     canvas.width = innerWidth;
     canvas.height = innerHeight;
-});
+};
 
-// ===== Stars =====
-let stars = [];
+// ===== STAR FIELD =====
+const stars = [];
 
-for(let i=0;i<250;i++){
+for (let i = 0; i < 300; i++) {
     stars.push({
-        x:Math.random()*canvas.width,
-        y:Math.random()*canvas.height,
-        s:Math.random()*3+1,
-        v:Math.random()*4+1
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        s: Math.random() * 2 + 1,
+        v: Math.random() * 5 + 1
     });
 }
 
-// ===== UFO =====
-let ufos=[];
-
-function createUFO(){
-
-    ufos.push({
-
-        x:canvas.width+100,
-
-        y:80+Math.random()*(canvas.height-160),
-
-        w:70,
-
-        h:35,
-
-        speed:4+Math.random()*4
-
-    });
-
-}
-
-setInterval(createUFO,800);
-
-// ===== Laser =====
-let lasers=[];
-
-function fireLaser(x,y){
-
-    lasers.push({
-
-        x:x,
-
-        y:y,
-
-        r:4,
-
-        speed:12
-
-    });
-
-}
-
-// ===== Explosion =====
-let explosions=[];
-
-function explode(x,y){
-
-    explosions.push({
-
-        x:x,
-
-        y:y,
-
-        r:1,
-
-        alpha:1
-
-    });
-
-}
-
-setInterval(()=>{
-
-    ufos.forEach(u=>{
-
-        fireLaser(u.x,u.y+15);
-
-    });
-
-},700);
-
-// ===== Draw =====
-function draw(){
+function drawStars() {
 
     ctx.clearRect(0,0,canvas.width,canvas.height);
 
-    // Stars
-
     ctx.fillStyle="white";
 
-    stars.forEach(s=>{
+    stars.forEach(st=>{
 
         ctx.beginPath();
 
-        ctx.arc(s.x,s.y,s.s,0,Math.PI*2);
+        ctx.arc(st.x,st.y,st.s,0,Math.PI*2);
 
         ctx.fill();
 
-        s.x-=s.v;
+        st.x-=st.v;
 
-        if(s.x<0){
+        if(st.x<0){
 
-            s.x=canvas.width;
+            st.x=canvas.width;
 
-            s.y=Math.random()*canvas.height;
+            st.y=Math.random()*canvas.height;
 
         }
 
     });
 
-    // UFO
+    requestAnimationFrame(drawStars);
+
+}
+
+drawStars();
+
+// ===== UFO =====
+
+const ufos=document.querySelectorAll(".ufo");
+
+setTimeout(()=>{
+
+    battle.style.opacity=1;
 
     ufos.forEach((u,index)=>{
 
-        u.x-=u.speed;
+        u.animate([
 
-        ctx.fillStyle="#00ff66";
+            {
+                transform:"translateX(0)"
+            },
 
-        ctx.beginPath();
+            {
+                transform:"translateX(-180vw)"
+            }
 
-        ctx.ellipse(u.x,u.y,u.w/2,u.h/2,0,0,Math.PI*2);
+        ],{
 
-        ctx.fill();
+            duration:5000+(index*700),
 
-        ctx.fillStyle="#66ffff";
+            iterations:1,
 
-        ctx.beginPath();
+            fill:"forwards"
 
-        ctx.arc(u.x,u.y-12,15,0,Math.PI*2);
-
-        ctx.fill();
-
-        if(u.x<-100){
-
-            explode(u.x,u.y);
-
-            ufos.splice(index,1);
-
-        }
+        });
 
     });
 
-    // Laser
+},5000);
 
-    lasers.forEach((l,index)=>{
+// ===== LASER =====
 
-        l.x-=l.speed;
+function laser(){
 
-        ctx.strokeStyle="red";
+    document.querySelectorAll(".laser").forEach((l,index)=>{
 
-        ctx.lineWidth=3;
+        l.style.opacity=1;
 
-        ctx.beginPath();
+        l.style.top=(25+index*20)+"%";
 
-        ctx.moveTo(l.x,l.y);
+        l.style.left="100%";
 
-        ctx.lineTo(l.x-20,l.y);
+        l.animate([
 
-        ctx.stroke();
+            {
+                transform:"translateX(0)"
+            },
 
-        if(l.x<0){
+            {
+                transform:"translateX(-220vw)"
+            }
 
-            lasers.splice(index,1);
+        ],{
 
-        }
+            duration:900,
 
-    });
+            iterations:1
 
-    // Explosion
-
-    explosions.forEach((e,index)=>{
-
-        ctx.beginPath();
-
-        ctx.arc(e.x,e.y,e.r,0,Math.PI*2);
-
-        ctx.fillStyle="rgba(255,180,0,"+e.alpha+")";
-
-        ctx.fill();
-
-        e.r+=3;
-
-        e.alpha-=0.04;
-
-        if(e.alpha<=0){
-
-            explosions.splice(index,1);
-
-        }
+        });
 
     });
-
-    requestAnimationFrame(draw);
 
 }
 
-draw();
+setInterval(laser,700);
 
-// ===== START =====
+// ===== FLASH =====
 
-document.getElementById("startBtn").onclick=function(){
+function boom(){
 
-    document.getElementById("intro").style.opacity="0";
+    flash.animate([
 
-    setTimeout(()=>{
+        {opacity:0},
 
-        document.getElementById("intro").style.display="none";
+        {opacity:.9},
 
-        document.getElementById("battle").style.display="block";
+        {opacity:0}
 
-    },900);
+    ],{
 
-    // 8 sec later show TEAM420 logo
+        duration:500
 
-    setTimeout(()=>{
+    });
 
-        document.getElementById("teamLogo").style.display="block";
+}
 
-    },8000);
+setInterval(boom,1600);
+
+// ===== SHOW FINAL =====
+
+setTimeout(()=>{
+
+    battle.style.opacity=0;
+
+    finalScreen.style.opacity=1;
+
+},12000);
+
+// ===== START BUTTON =====
+
+start.onclick=function(){
+
+    window.location.href="home.html";
 
 };
-// ===== Camera Flash =====
-function flashScreen() {
-    const flash = document.createElement("div");
-
-    flash.style.position = "fixed";
-    flash.style.left = "0";
-    flash.style.top = "0";
-    flash.style.width = "100%";
-    flash.style.height = "100%";
-    flash.style.background = "#fff";
-    flash.style.opacity = "0.9";
-    flash.style.pointerEvents = "none";
-    flash.style.zIndex = "9999";
-    flash.style.transition = "opacity .5s";
-
-    document.body.appendChild(flash);
-
-    setTimeout(() => {
-        flash.style.opacity = "0";
-    }, 100);
-
-    setTimeout(() => {
-        flash.remove();
-    }, 700);
-}
-
-// ===== Camera Shake =====
-function shake() {
-
-    document.body.style.animation = "shake .4s";
-
-    setTimeout(() => {
-        document.body.style.animation = "";
-    }, 400);
-
-}
-
-// ===== Ending =====
-setTimeout(() => {
-
-    flashScreen();
-
-    shake();
-
-    const end = document.createElement("div");
-
-    end.innerHTML = 
-    <h1>MISSION COMPLETE</h1>
-    <h2>TEAM 420</h2>
-    ;
-
-    end.style.position = "fixed";
-    end.style.left = "50%";
-    end.style.top = "50%";
-    end.style.transform = "translate(-50%,-50%)";
-    end.style.color = "#39ff14";
-    end.style.textAlign = "center";
-    end.style.zIndex = "99999";
-    end.style.textShadow = "0 0 30px #39ff14";
-
-    document.body.appendChild(end);
-
-}, 15000);
