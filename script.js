@@ -168,3 +168,7 @@ start.onclick=function(){
     window.location.href="home.html";
 
 };
+setTimeout(() => {
+  document.getElementById("loading").style.display = "none";
+  document.getElementById("home").style.display = "block";
+}, 4000);
