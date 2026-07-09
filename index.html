@@ -6,58 +6,26 @@
 <title>TEAM 420</title>
 
 <link rel="stylesheet" href="style.css">
-
 </head>
+
 <body>
 
-<!-- Canvas -->
-<canvas id="space"></canvas>
+<video autoplay muted loop id="bgVideo">
+    <source src="video.mp4" type="video/mp4">
+</video>
 
-<!-- Intro -->
-<div id="intro">
+<div class="overlay"></div>
 
-<img src="420logo.png" id="logo">
+<div class="loading-box">
 
-<h1 id="title">TEAM 420</h1>
+    <img src="my-team.jpg" class="logo" alt="TEAM 420">
 
-<p id="story">
-Searching Unknown Signal...
-</p>
+    <h1>TEAM 420</h1>
 
-</div>
+    <h2>Searching Unknown Signal...</h2>
 
-<!-- Battle Effect -->
-<div id="battle">
+    <div class="progress">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
 
-<div class="laser laser1"></div>
-<div class="laser laser2"></div>
-<div class="laser laser3"></div>
-
-<div class="ufo ufo1"></div>
-<div class="ufo ufo2"></div>
-<div class="ufo ufo3"></div>
-<div class="ufo ufo4"></div>
-
-<div id="flash"></div>
-
-</div>
-
-<!-- Final Logo -->
-<div id="final">
-
-<img src="420logo.png">
-
-<h2>TEAM 420</h2>
-
-<p>Beyond Limits</p>
-
-<button id="start">
-START
-</button>
-
-</div>
-
-<script src="script.js"></script>
-
-</body>
-</html>
+    <p id="percent">0%</
