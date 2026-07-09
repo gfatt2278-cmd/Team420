@@ -232,3 +232,66 @@ document.getElementById("startBtn").onclick=function(){
     },8000);
 
 };
+// ===== Camera Flash =====
+function flashScreen() {
+    const flash = document.createElement("div");
+
+    flash.style.position = "fixed";
+    flash.style.left = "0";
+    flash.style.top = "0";
+    flash.style.width = "100%";
+    flash.style.height = "100%";
+    flash.style.background = "#fff";
+    flash.style.opacity = "0.9";
+    flash.style.pointerEvents = "none";
+    flash.style.zIndex = "9999";
+    flash.style.transition = "opacity .5s";
+
+    document.body.appendChild(flash);
+
+    setTimeout(() => {
+        flash.style.opacity = "0";
+    }, 100);
+
+    setTimeout(() => {
+        flash.remove();
+    }, 700);
+}
+
+// ===== Camera Shake =====
+function shake() {
+
+    document.body.style.animation = "shake .4s";
+
+    setTimeout(() => {
+        document.body.style.animation = "";
+    }, 400);
+
+}
+
+// ===== Ending =====
+setTimeout(() => {
+
+    flashScreen();
+
+    shake();
+
+    const end = document.createElement("div");
+
+    end.innerHTML = 
+    <h1>MISSION COMPLETE</h1>
+    <h2>TEAM 420</h2>
+    ;
+
+    end.style.position = "fixed";
+    end.style.left = "50%";
+    end.style.top = "50%";
+    end.style.transform = "translate(-50%,-50%)";
+    end.style.color = "#39ff14";
+    end.style.textAlign = "center";
+    end.style.zIndex = "99999";
+    end.style.textShadow = "0 0 30px #39ff14";
+
+    document.body.appendChild(end);
+
+}, 15000);
