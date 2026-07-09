@@ -4,49 +4,44 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TEAM 420</title>
-
-<link rel="stylesheet" href="style.css">
-
+<style>
+body{
+margin:0;
+background:#000;
+color:#fff;
+font-family:Arial,sans-serif;
+text-align:center;
+}
+.container{
+margin-top:120px;
+}
+h1{
+font-size:60px;
+color:#39ff14;
+text-shadow:0 0 20px #39ff14;
+}
+p{
+font-size:24px;
+}
+button{
+padding:15px 40px;
+font-size:22px;
+background:#39ff14;
+border:none;
+border-radius:30px;
+cursor:pointer;
+}
+</style>
 </head>
 <body>
 
-<!-- Background Video -->
-<video autoplay muted loop id="bgVideo">
-    <source src="video.mp4" type="video/mp4">
-</video>
-
-<!-- Navigation -->
-<nav class="menu">
-    <a href="#">HOME</a>
-    <a href="#">TEAM</a>
-    <a href="#">GALLERY</a>
-    <a href="#">VIDEO</a>
-    <a href="#">CONTACT</a>
-</nav>
-
-<!-- UFO -->
-<div class="ufo">🛸</div>
-
-<!-- Main -->
 <div class="container">
+<h1>TEAM 420</h1>
+<p>👽 Welcome To TEAM 420 👽</p>
 
-    <img src="my-team.jpg" class="logo" alt="TEAM 420">
-
-    <h1>TEAM 420</h1>
-
-    <p>👽 Welcome To TEAM 420 👽</p>
-
-    <button id="enterBtn">ENTER</button>
+<button onclick="alert('Welcome TEAM 420')">ENTER</button>
 
 </div>
-
-<script>
-document.getElementById("enterBtn").onclick=function(){
-
-    alert("Welcome To TEAM 420 👽");
-
-};
-</script>
 
 </body>
 </html>
