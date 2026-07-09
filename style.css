@@ -177,3 +177,17 @@ transform:scale(1.05);
 }
 
 }
+.logo{
+    width:280px;
+    max-width:80%;
+    display:block;
+    margin:20px auto;
+    filter: drop-shadow(0 0 20px #00ff99);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-12px);}
+    100%{transform:translateY(0);}
+}
