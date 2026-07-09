@@ -134,3 +134,25 @@ html,body{
     50%{transform:translateY(-15px);}
     100%{transform:translateY(0);}
 }
+.menu{
+    position:fixed;
+    top:20px;
+    width:100%;
+    text-align:center;
+    z-index:100;
+}
+
+.menu a{
+    color:#39ff14;
+    text-decoration:none;
+    margin:0 18px;
+    font-size:20px;
+    font-weight:bold;
+    text-shadow:0 0 10px #39ff14;
+    transition:.3s;
+}
+
+.menu a:hover{
+    color:#ffffff;
+    text-shadow:0 0 20px #39ff14;
+}
