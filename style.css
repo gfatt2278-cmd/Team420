@@ -341,3 +341,8 @@ button:hover{
     50%{transform:translateY(-15px);}
     100%{transform:translateY(0);}
 }
+.logo{
+    width:180px;
+    display:block;
+    margin:20px auto;
+}
