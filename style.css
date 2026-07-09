@@ -109,8 +109,12 @@ html,body{
     position:absolute;
     width:220px;
     height:4px;
-    background:red;
-    box-shadow:0 0 20px red;
+    background:linear-gradient(90deg,#00ff66,#ffffff,#00ff66);
+    box-shadow:0 0 20px #00ff66;
+    border-radius:20px;
+    opacity:0;
+}
+
 #bgVideo{
     position:fixed;
     top:0;
@@ -120,7 +124,6 @@ html,body{
     object-fit:cover;
     z-index:-2;
 }
-
 .logo{
     width:220px;
     display:block;
