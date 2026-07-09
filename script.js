@@ -1,114 +1,81 @@
-/* ===========================
-   TEAM 420 SCRIPT
-=========================== */
+const story = 
 
-const logo = document.getElementById("logo");
-const title420 = document.querySelector("h2");
+Beyond the stars...
 
-// Click Effect
-logo.addEventListener("click", () => {
+A mysterious UFO appeared from deep space.
 
-    // Logo Spin
-    logo.style.transform = "scale(1.2) rotate(720deg)";
+Its glowing green beam pierced the darkness...
 
-    setTimeout(() => {
-        logo.style.transform = "scale(1) rotate(0deg)";
-    }, 800);
+Revealing a mysterious symbol...
 
-    // Change 420 Color
-    title420.style.color = "#39ff14";
-    title420.style.textShadow =
-        "0 0 20px #39ff14, 0 0 50px #39ff14";
+━━━━━━━━━━━━━━━━━━
 
-    setTimeout(() => {
-        title420.style.color = "#00ff99";
-        title420.style.textShadow =
-            "0 0 15px #00ff99, 0 0 35px #00ff99";
-    }, 800);
+The UFO represents
+new ideas,
+limitless imagination,
+and the future.
 
-    // Screen Flash
-    flashScreen();
+Its beam symbolizes
+hope,
+new opportunities,
+and endless possibilities.
 
-    // Play Sound (optional)
-    playClickSound();
+At the center...
 
-});
+420
 
-// Flash Effect
-function flashScreen() {
+A symbol of
+Trust...
+Uniqueness...
+Identity...
 
-    const flash = document.createElement("div");
+━━━━━━━━━━━━━━━━━━
 
-    flash.style.position = "fixed";
-    flash.style.left = "0";
-    flash.style.top = "0";
-    flash.style.width = "100%";
-    flash.style.height = "100%";
-    flash.style.background = "#39ff14";
-    flash.style.opacity = "0.35";
-    flash.style.pointerEvents = "none";
-    flash.style.zIndex = "999";
+Think Different.
 
-    document.body.appendChild(flash);
+Stay Creative.
 
-    setTimeout(() => {
-        flash.remove();
-    }, 180);
+Beyond Limits.
 
-}
+🚀 Beyond Limits
 
-// Optional Click Sound
-function playClickSound(){
+👽 Beyond Imagination
 
-    const audio = new Audio("click.mp3");
+🌌 Create Your Own Universe
 
-    audio.volume = 0.6;
+420 — Explore the Unknown.
 
-    audio.play().catch(() => {
+;
 
-        // Ignore if sound file not found
+const typing = document.getElementById("typing");
+const btn = document.getElementById("startBtn");
 
-    });
+let i = 0;
 
-}
+function typeWriter(){
 
-// Floating Title Animation
-let up = true;
+    if(i < story.length){
 
-setInterval(() => {
+        typing.innerHTML += story.charAt(i);
 
-    if(up){
+        i++;
 
-        title420.style.transform = "translateY(-8px)";
-        up = false;
-
-    }else{
-
-        title420.style.transform = "translateY(8px)";
-        up = true;
+        setTimeout(typeWriter,35);
 
     }
 
-},600);
+}
 
-// Random Glow Pulse
-setInterval(() => {
+btn.addEventListener("click",()=>{
 
-    logo.style.boxShadow =
-        "0 0 30px #39ff14, 0 0 80px #39ff14";
+    btn.style.display="none";
 
-    setTimeout(() => {
+    typing.innerHTML="";
 
-        logo.style.boxShadow =
-            "0 0 20px #39ff14, 0 0 50px #39ff14";
+    i=0;
 
-    },400);
+    document.querySelector(".logo").classList.add("active");
 
-},2500);
+    typeWriter();
 
-// Welcome Message
-window.onload = () => {
-
-    console.log("🔥 TEAM 420 LOADED 🔥");
-
-};
+});
