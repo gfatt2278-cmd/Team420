@@ -140,3 +140,52 @@ h1{
 }
 
 }
+/* Logo Animation */
+
+.logo{
+
+transition:2s;
+
+}
+
+.logo.active{
+
+transform:scale(1.3);
+
+filter:
+
+drop-shadow(0 0 20px #00ff66)
+
+drop-shadow(0 0 50px #00ff66)
+
+drop-shadow(0 0 90px #00ff66);
+
+}
+
+/* Story Fade */
+
+#story{
+
+animation:fadeUp 2s;
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(80px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
