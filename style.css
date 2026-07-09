@@ -134,3 +134,45 @@ html,body{
     50%{transform:translateY(-15px);}
     100%{transform:translateY(0);}
 }
+/* ===== UFO Animation ===== */
+
+.ufo{
+    position:fixed;
+    top:80px;
+    left:-150px;
+    font-size:70px;
+    z-index:99;
+    animation:ufoFly 12s linear infinite;
+    filter:drop-shadow(0 0 20px #39ff14);
+}
+
+@keyframes ufoFly{
+
+0%{
+left:-150px;
+top:120px;
+transform:rotate(0deg);
+}
+
+25%{
+left:25%;
+top:80px;
+}
+
+50%{
+left:50%;
+top:180px;
+}
+
+75%{
+left:75%;
+top:100px;
+}
+
+100%{
+left:110%;
+top:140px;
+transform:rotate(360deg);
+}
+
+}
