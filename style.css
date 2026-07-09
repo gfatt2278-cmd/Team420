@@ -76,3 +76,76 @@ body::before{
     text-shadow:
     0 0 10px #fff,
     0
+/* Stars */
+
+.star{
+position:fixed;
+width:3px;
+height:3px;
+background:white;
+border-radius:50%;
+animation:twinkle infinite;
+opacity:.8;
+z-index:-1;
+}
+
+@keyframes twinkle{
+
+0%{opacity:.2;}
+
+50%{opacity:1;}
+
+100%{opacity:.2;}
+
+}
+
+/* UFO Laser */
+
+.laser{
+position:fixed;
+width:4px;
+height:180px;
+background:linear-gradient(to bottom,#39ff14,transparent);
+animation:laser .6s linear;
+pointer-events:none;
+}
+
+@keyframes laser{
+
+from{
+opacity:1;
+}
+
+to{
+opacity:0;
+height:260px;
+}
+
+}
+
+/* Mouse Glow */
+
+.mouseGlow{
+position:fixed;
+width:12px;
+height:12px;
+border-radius:50%;
+background:#39ff14;
+box-shadow:0 0 20px #39ff14;
+pointer-events:none;
+animation:fade .5s linear;
+}
+
+@keyframes fade{
+
+from{
+opacity:1;
+transform:scale(1);
+}
+
+to{
+opacity:0;
+transform:scale(3);
+}
+
+}
