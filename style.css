@@ -160,13 +160,13 @@ html,body{
     text-shadow:0 0 20px #39ff14;
 }
 h1{
-    font-size:70px;
+    font-size:72px;
+    letter-spacing:6px;
     color:#39ff14;
     text-shadow:
     0 0 10px #39ff14,
-    0 0 20px #39ff14,
-    0 0 40px #39ff14;
-    animation:glow 2s infinite alternate;
+    0 0 30px #39ff14,
+    0 0 60px #00ff66;
 }
 
 @keyframes glow{
